@@ -38,23 +38,29 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((node) => {
         gsap.from(node, {
           opacity: 0, y: 48, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: node, start: 'top 84%', once: true }
+          scrollTrigger: { trigger: node, start: 'top 84%', toggleActions: 'restart pause restart pause' }
         });
       });
 
       gsap.from('.wall__karol', {
         x: -150, opacity: 0, rotation: -5, duration: 1.25,
-        scrollTrigger: { trigger: '.wall-scene', start: 'top 72%', once: true }
+        scrollTrigger: { trigger: '.wall-scene', start: 'top 72%', toggleActions: 'restart pause restart pause' }
       });
 
-      gsap.timeline({ scrollTrigger: { trigger: '.swipe-scene', start: 'top 68%', once: true } })
+      gsap.timeline({ scrollTrigger: { trigger: '.swipe-scene', start: 'top 68%', toggleActions: 'restart pause restart pause' } })
         .from('.phone', { y: 80, opacity: 0, rotation: -4, duration: .9 }, '-=.45')
         .from('.profile-card', { scale: .86, opacity: 0, duration: .7 }, '-=.25')
         .to('.profile-card', { x: 300, rotation: 18, opacity: 0, duration: 1.1, delay: .55, ease: 'power2.in' })
         .from('.match', { scale: .4, opacity: 0, duration: .75, ease: 'back.out(1.8)' }, '-=.2');
 
 
-      gsap.timeline({ scrollTrigger: { trigger: '.kiss-scene', start: 'top 68%', once: true } })
+      gsap.timeline({ repeat: -1, repeatDelay: 1.1, scrollTrigger: { trigger: '.road-scene', start: 'top 75%', end: 'bottom 25%', toggleActions: 'restart pause restart pause' } })
+        .fromTo('.road-scene__car', { xPercent: 135, rotation: 1.5 }, { xPercent: 0, rotation: 0, duration: 2.25, ease: 'power2.out' })
+        .fromTo('.road-scene__copy', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .8 }, '-=.55')
+        .to('.road-scene__car', { xPercent: -135, duration: 2.1, ease: 'power2.in', delay: 1.4 })
+        .to('.road-scene__copy', { opacity: 0, duration: .45 }, '-=1.25');
+
+      gsap.timeline({ scrollTrigger: { trigger: '.kiss-scene', start: 'top 68%', toggleActions: 'restart pause restart pause' } })
         .from('.anime-character--ania', { xPercent: -170, opacity: 0, duration: 1.25, ease: 'power3.out' })
         .from('.anime-character--karol', { xPercent: 170, opacity: 0, duration: 1.25, ease: 'power3.out' }, '<')
         .to('.anime-character--ania', { xPercent: 42, rotation: 2, duration: 1.1, ease: 'power2.inOut' })
@@ -64,16 +70,33 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         .from('.floating-hearts > *', { y: 45, scale: 0, opacity: 0, rotation: -25, duration: .75, stagger: .12, ease: 'back.out(2)' }, '-=.38')
         .to('.floating-hearts span', { y: -18, duration: 1.3, yoyo: true, repeat: -1, stagger: .16, ease: 'sine.inOut' });
 
-      gsap.timeline({ scrollTrigger: { trigger: '.date-scene', start: 'top 72%', once: true } })
+
+      gsap.timeline({ scrollTrigger: { trigger: '.together-date', start: 'top 72%', toggleActions: 'restart pause restart pause' } })
+        .from('.date-hearts span', { y: 100, opacity: 0, scale: .25, rotation: -30, duration: 1, stagger: .08, ease: 'back.out(1.8)' })
+        .from('.date-confetti i', { y: -90, opacity: 0, rotation: -180, duration: 1.25, stagger: .055, ease: 'power2.out' }, '-=.75');
+
+
+      gsap.from('.newlyweds-scene__copy', {
+        opacity: 0, y: 45, scale: .94, duration: 1.15, ease: 'power3.out',
+        scrollTrigger: { trigger: '.newlyweds-scene', start: 'top 72%', toggleActions: 'restart pause restart pause' }
+      });
+
+      gsap.timeline({ scrollTrigger: { trigger: '.date-scene', start: 'top 72%', toggleActions: 'restart pause restart pause' } })
         .from('.date-scene__line', { scaleX: 0, duration: 1.2, transformOrigin: 'left' })
         .from('.date-scene__date', { opacity: 0, scale: .75, duration: .8, ease: 'back.out(1.6)' })
         .from('.date-scene__copy', { opacity: 0, y: 20, duration: .7 });
 
       gsap.from('.future__item', {
         opacity: 0, y: 30, scale: .8, duration: .7, stagger: .16,
-        scrollTrigger: { trigger: '.future', start: 'top 65%', once: true }
+        scrollTrigger: { trigger: '.future', start: 'top 65%', toggleActions: 'restart pause restart pause' }
       });
     }, root);
+    const audio = root.querySelector<HTMLAudioElement>('.wedding-audio');
+    const wave = root.querySelector<HTMLElement>('.voice-wave');
+    audio?.addEventListener('play', () => wave?.classList.add('is-playing'));
+    audio?.addEventListener('pause', () => wave?.classList.remove('is-playing'));
+    audio?.addEventListener('ended', () => wave?.classList.remove('is-playing'));
+
     ScrollTrigger.refresh();
   }
 
