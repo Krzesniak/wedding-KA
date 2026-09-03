@@ -2,7 +2,7 @@
   @if (!started()) {
     <section class="gate">
       <div class="gate__grain"></div>
-      <p class="kicker">28 września 2026</p>
+      <p class="kicker">26 września 2026</p>
       <h1>Ania <span>&amp;</span> Karol</h1>
       <p class="gate__lead">Jedno przesunięcie. Jedno spotkanie.<br>Jedna wspólna historia.</p>
       <button type="button" (click)="startStory()">Otwórz historię</button>
@@ -11,8 +11,9 @@
   } @else {
     <section class="intro" aria-labelledby="intro-title">
       <div class="intro__glow"></div>
-      <div class="bands" aria-hidden="true">
-        <i class="band band--gold"></i><i class="band band--silver"></i>
+      <div class="rings-photo" aria-hidden="true">
+        <img src="/images/wedding-rings.png" alt="">
+        <span class="rings-photo__shine"></span>
       </div>
       <div class="intro__copy">
         <p class="kicker">Każda wielka historia ma swój początek</p>
@@ -32,11 +33,11 @@
       <div class="wall-scene__sky"></div>
       <div class="wall-scene__mountains"></div>
       <div class="wall-scene__wall"><i></i><i></i><i></i></div>
-      <img class="wall__karol" src="/images/karol.jpg" alt="Portret Karola podczas podróży" loading="eager">
+      <img class="wall__karol" src="/images/karol-great-wall.jpg" alt="Karol na Wielkim Murze Chińskim" loading="eager">
       <div class="wall-scene__copy" data-reveal>
         <p class="kicker">Gdzieś bardzo, bardzo daleko…</p>
         <h2>Karol był już prawie<br>na końcu świata.</h2>
-        <p>No dobrze, na zdjęciu jest Sfinks. W naszej historii na chwilę trafia jednak na Wielki Mur.</p>
+        <p>Tym razem bez filmowych sztuczek. Karol naprawdę dotarł na Wielki Mur Chiński.</p>
       </div>
     </section>
 
@@ -68,6 +69,18 @@
       </div>
     </section>
 
+
+    <section class="restaurant-scene">
+      <div class="restaurant-scene__copy">
+        <p class="kicker" data-reveal>Wspólna codzienność</p>
+        <h2 data-reveal>Najlepsze historie mają też dobry smak.</h2>
+        <p data-reveal>Podróże, kolacje i wszystkie małe chwile, które z czasem stają się najważniejsze.</p>
+      </div>
+      <figure class="restaurant-scene__photo" data-reveal>
+        <img src="/images/karol-restaurant.jpg" alt="Karol podczas kolacji w restauracji" loading="lazy">
+      </figure>
+    </section>
+
     <section class="kiss-scene chapter--center">
       <div class="avatar avatar--ania" data-reveal><img src="/images/ania.jpg" alt="Ania"></div>
       <div class="kiss-scene__heart" aria-hidden="true">♥</div>
@@ -80,7 +93,7 @@
     <section class="date-scene">
       <div class="date-scene__line"></div>
       <p class="kicker">Następny wielki rozdział</p>
-      <div class="date-scene__date">28.09.2026</div>
+      <div class="date-scene__date">26.09.2026</div>
       <h2 class="date-scene__copy">Ania i Karol<br>biorą ślub!</h2>
     </section>
 
@@ -94,6 +107,12 @@
         <article data-reveal><span>🧭</span><h3>Podróży bliskich i dalekich</h3><p>Oraz zawsze zgodnej odpowiedzi na pytanie: „Kto pilnuje paszportów?”.</p></article>
         <article data-reveal><span>😂</span><h3>Śmiechu do łez</h3><p>Zwłaszcza wtedy, gdy plan A, B i C postanowią nie współpracować.</p></article>
         <article data-reveal><span>🤍</span><h3>Miłości na każdy dzień</h3><p>Spokojnej, mocnej i zawsze gotowej na kolejną wspólną przygodę.</p></article>
+        <article data-reveal><span>🏠</span><h3>Domu pełnego ciepła</h3><p>Miejsca, do którego zawsze chce się wracać, niezależnie od pogody i korków.</p></article>
+        <article data-reveal><span>☕</span><h3>Spokojnych poranków</h3><p>Z dobrą kawą, wolnym weekendem i bez pytania: „Co dzisiaj jemy?”.</p></article>
+        <article data-reveal><span>🌍</span><h3>Wspólnych odkryć</h3><p>Od Wielkiego Muru po małe miejsca, które staną się tylko Wasze.</p></article>
+        <article data-reveal><span>💪</span><h3>Siły na trudniejsze dni</h3><p>Bo we dwoje każdy problem jest mniejszy, a każda radość dwa razy większa.</p></article>
+        <article data-reveal><span>🎉</span><h3>Mnóstwa dobrych ludzi</h3><p>Takich, którzy będą świętować sukcesy i przyniosą pizzę w kryzysie.</p></article>
+        <article data-reveal><span>✨</span><h3>Spełnionych marzeń</h3><p>Tych wielkich, tych całkiem małych i tych jeszcze niewypowiedzianych.</p></article>
       </div>
     </section>
 
@@ -117,7 +136,7 @@
       </div>
       <p class="future__ending" data-reveal>Żyjcie długo, szczęśliwie<br>i zdecydowanie bez kredytu.</p>
       <div class="confetti" aria-hidden="true">✦ · ♥ · ✦ · ♥ · ✦</div>
-      <p class="final-date">28 września 2026</p>
+      <p class="final-date">26 września 2026</p>
     </section>
   }
 </main>

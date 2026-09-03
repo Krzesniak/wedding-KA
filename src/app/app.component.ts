@@ -29,9 +29,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     this.context = gsap.context(() => {
       gsap.timeline()
         .to('.intro__glow', { opacity: .75, duration: 1.5, ease: 'power2.out' })
-        .from('.band--gold', { x: -160, rotation: -80, opacity: 0, duration: 1.65, ease: 'power3.out' }, '-=.6')
-        .from('.band--silver', { x: 160, rotation: 80, opacity: 0, duration: 1.65, ease: 'power3.out' }, '<')
-        .to('.bands', { scale: 1.06, duration: .7, yoyo: true, repeat: 1 })
+        .from('.rings-photo', { y: 55, scale: .62, rotation: -7, opacity: 0, duration: 1.9, ease: 'power3.out' }, '-=.6')
+        .to('.rings-photo', { scale: 1.055, duration: .75, yoyo: true, repeat: 1 })
+        .fromTo('.rings-photo__shine', { xPercent: -170, opacity: 0 }, { xPercent: 190, opacity: .9, duration: 1.15, ease: 'power2.inOut' }, '-=1.15')
         .from('.intro__copy > *', { y: 28, opacity: 0, duration: .95, stagger: .18 }, '-=.65')
         .from('.intro__scroll', { opacity: 0, y: -10, duration: .7 });
 
