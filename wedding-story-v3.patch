@@ -1,0 +1,156 @@
+diff --git a/src/app/app.component.html b/src/app/app.component.html
+index ce7dbd1..c75026c 100644
+--- a/src/app/app.component.html
++++ b/src/app/app.component.html
+@@ -2,7 +2,7 @@
+   @if (!started()) {
+     <section class="gate">
+       <div class="gate__grain"></div>
+-      <p class="kicker">28 września 2026</p>
++      <p class="kicker">26 września 2026</p>
+       <h1>Ania <span>&amp;</span> Karol</h1>
+       <p class="gate__lead">Jedno przesunięcie. Jedno spotkanie.<br>Jedna wspólna historia.</p>
+       <button type="button" (click)="startStory()">Otwórz historię</button>
+@@ -11,8 +11,9 @@
+   } @else {
+     <section class="intro" aria-labelledby="intro-title">
+       <div class="intro__glow"></div>
+-      <div class="bands" aria-hidden="true">
+-        <i class="band band--gold"></i><i class="band band--silver"></i>
++      <div class="rings-photo" aria-hidden="true">
++        <img src="/images/wedding-rings.png" alt="">
++        <span class="rings-photo__shine"></span>
+       </div>
+       <div class="intro__copy">
+         <p class="kicker">Każda wielka historia ma swój początek</p>
+@@ -48,8 +49,8 @@
+       <div class="phone" aria-label="Animowana karta profilu">
+         <div class="phone__top"><span>9:41</span><span>● ● ●</span></div>
+         <div class="profile-card">
+-          <img src="/images/ania.jpg" alt="Portret Ani z dyplomem i kwiatami">
+-          <div class="profile-card__caption"><strong>Ania</strong><span>To wygląda obiecująco ✨</span></div>
++          <img src="/images/karol.jpg" alt="Portret Karola">
++          <div class="profile-card__caption"><strong>Karol</strong><span>To wygląda obiecująco ✨</span></div>
+           <b class="like-stamp">W PRAWO!</b>
+         </div>
+         <div class="phone__actions"><span>×</span><span>★</span><span>♥</span></div>
+@@ -69,18 +70,20 @@
+     </section>
+ 
+     <section class="kiss-scene chapter--center">
+-      <div class="avatar avatar--ania" data-reveal><img src="/images/ania.jpg" alt="Ania"></div>
+-      <div class="kiss-scene__heart" aria-hidden="true">♥</div>
+-      <div class="avatar avatar--karol" data-reveal><img src="/images/karol.jpg" alt="Karol"></div>
++      <div class="kiss-stage" aria-label="Animowana scena zbliżenia Ani i Karola">
++        <div class="anime-character anime-character--ania"><img src="/images/ania-anime.png" alt="Stylizowana postać Ani"></div>
++        <div class="kiss-burst" aria-hidden="true"><span>♥</span><i>✦</i><b>♥</b></div>
++        <div class="anime-character anime-character--karol"><img src="/images/karol-anime.png" alt="Stylizowana postać Karola"></div>
++      </div>
+       <p class="kicker" data-reveal>A później…</p>
+-      <h2 data-reveal>był buziak.</h2>
++      <h2 data-reveal>pojawiła się iskra.</h2>
+       <p data-reveal>I od tego momentu wszystko potoczyło się już całkiem naturalnie.</p>
+     </section>
+ 
+     <section class="date-scene">
+       <div class="date-scene__line"></div>
+       <p class="kicker">Następny wielki rozdział</p>
+-      <div class="date-scene__date">28.09.2026</div>
++      <div class="date-scene__date">26.09.2026</div>
+       <h2 class="date-scene__copy">Ania i Karol<br>biorą ślub!</h2>
+     </section>
+ 
+@@ -94,6 +97,12 @@
+         <article data-reveal><span>🧭</span><h3>Podróży bliskich i dalekich</h3><p>Oraz zawsze zgodnej odpowiedzi na pytanie: „Kto pilnuje paszportów?”.</p></article>
+         <article data-reveal><span>😂</span><h3>Śmiechu do łez</h3><p>Zwłaszcza wtedy, gdy plan A, B i C postanowią nie współpracować.</p></article>
+         <article data-reveal><span>🤍</span><h3>Miłości na każdy dzień</h3><p>Spokojnej, mocnej i zawsze gotowej na kolejną wspólną przygodę.</p></article>
++        <article data-reveal><span>🏠</span><h3>Domu pełnego ciepła</h3><p>Miejsca, do którego zawsze chce się wracać.</p></article>
++        <article data-reveal><span>☕</span><h3>Spokojnych poranków</h3><p>Z dobrą kawą, wolnym weekendem i bez pośpiechu.</p></article>
++        <article data-reveal><span>🌍</span><h3>Wspólnych odkryć</h3><p>Od Wielkiego Muru po miejsca, które staną się tylko Wasze.</p></article>
++        <article data-reveal><span>💪</span><h3>Siły na trudniejsze dni</h3><p>Bo we dwoje każdy problem jest mniejszy.</p></article>
++        <article data-reveal><span>🎉</span><h3>Dobrych ludzi wokół</h3><p>Takich, którzy świętują sukcesy i pomagają w kryzysie.</p></article>
++        <article data-reveal><span>✨</span><h3>Spełnionych marzeń</h3><p>Tych wielkich, małych i jeszcze niewypowiedzianych.</p></article>
+       </div>
+     </section>
+ 
+@@ -117,7 +126,7 @@
+       </div>
+       <p class="future__ending" data-reveal>Żyjcie długo, szczęśliwie<br>i zdecydowanie bez kredytu.</p>
+       <div class="confetti" aria-hidden="true">✦ · ♥ · ✦ · ♥ · ✦</div>
+-      <p class="final-date">28 września 2026</p>
++      <p class="final-date">26 września 2026</p>
+     </section>
+   }
+ </main>
+diff --git a/src/app/app.component.scss b/src/app/app.component.scss
+index dbab601..632e085 100644
+--- a/src/app/app.component.scss
++++ b/src/app/app.component.scss
+@@ -1,3 +1,20 @@
+ :host{display:block}.kicker{margin:0;color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}h1,h2,blockquote{font-family:Georgia,"Times New Roman",serif;font-weight:400}h1,h2,p{margin-top:0}h1{font-size:clamp(3.4rem,15vw,8rem);line-height:.88;letter-spacing:-.05em}h1 span{color:var(--gold);font-style:italic}h2{font-size:clamp(2.6rem,9vw,6rem);line-height:.98;letter-spacing:-.04em}.gate,.intro,.chapter,.wall-scene,.swipe-scene,.date-night,.kiss-scene,.date-scene,.wishes,.signature,.future{position:relative;min-height:100dvh;padding:max(2rem,env(safe-area-inset-top)) clamp(1.25rem,5vw,5rem) max(2rem,env(safe-area-inset-bottom));overflow:hidden}.gate{display:grid;place-content:center;justify-items:center;text-align:center;background:#000;isolation:isolate}.gate__grain{position:absolute;inset:0;z-index:-1;opacity:.2;background:radial-gradient(circle at 40% 35%,#3e2e1e,transparent 38%),repeating-radial-gradient(circle at 20% 30%,#fff0 0,#fff0 2px,#fff 3px,#fff0 4px);filter:contrast(160%)}.gate h1{margin:.75rem 0 1.3rem}.gate__lead{color:#c9bdb0;line-height:1.7}.gate button{margin:1.4rem 0;padding:1rem 1.6rem;border:1px solid #e2bf7e;border-radius:999px;background:#e4c48b;color:#17110b;cursor:pointer;transition:.25s}.gate button:hover{transform:translateY(-3px);background:#fae7c0}.gate small{color:#756e67}.intro{display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 37%,#1d140c,#050403 52%,#000 80%);isolation:isolate}.intro__glow{position:absolute;z-index:-1;width:min(92vw,40rem);aspect-ratio:1;border-radius:50%;opacity:0;background:radial-gradient(circle,#e5b96845,transparent 68%);filter:blur(24px)}.bands{position:absolute;top:18%;display:flex;align-items:center;justify-content:center;width:min(90vw,34rem);height:14rem;filter:drop-shadow(0 1.2rem 1rem #000)}.band{display:block;width:clamp(7rem,28vw,11rem);aspect-ratio:1.7;border-radius:50%;border:clamp(.65rem,2.2vw,1.1rem) solid transparent;transform:rotateX(63deg);box-shadow:inset 0 .25rem .3rem #fff7d5,inset 0 -.35rem .45rem #5d340e,0 .25rem .2rem #000}.band--gold{margin-right:-1.7rem;background:linear-gradient(#0000,#0000) padding-box,conic-gradient(#6e3d11,#ffe4a1,#8d531a,#fff2bd,#55300e,#e7bd68,#6e3d11) border-box;transform:rotate(-15deg) rotateX(63deg)}.band--silver{margin-left:-1.7rem;background:linear-gradient(#0000,#0000) padding-box,conic-gradient(#555,#fff,#858585,#f8f8f4,#444,#ddd,#555) border-box;transform:rotate(15deg) rotateX(63deg)}.intro__copy{margin-top:15rem}.intro__copy h1{margin:.6rem 0 1rem}.intro__copy>p:last-child{color:#c7baab}.intro__scroll{position:absolute;bottom:2rem;display:grid;gap:.4rem;color:#b6a999;text-decoration:none;font-size:.8rem}.intro__scroll b{color:var(--gold);font-size:1.1rem}.chapter{display:grid;place-content:center}.chapter--center{text-align:center;justify-items:center}.chapter__number{margin:0;color:#3d3025;font:clamp(8rem,36vw,24rem)/.75 Georgia}.chapter h2{margin:.7rem 0}.wall-scene{min-height:115dvh;background:linear-gradient(#84b7e6 0 43%,#bd8650 43% 100%);isolation:isolate}.wall-scene__sky,.wall-scene__mountains,.wall-scene__wall{position:absolute;inset:0;z-index:-2}.wall-scene__sky{background:linear-gradient(#72ace1,#d7d0ad 55%,transparent 56%)}.wall-scene__mountains{top:31%;height:30%;background:linear-gradient(150deg,transparent 0 25%,#775d45 26% 38%,transparent 39%),linear-gradient(210deg,transparent 0 28%,#9c7653 29% 44%,transparent 45%)}.wall-scene__wall{z-index:-1;top:52%;height:24%;background:#9b6c42;clip-path:polygon(0 62%,20% 39%,35% 53%,53% 24%,70% 48%,100% 18%,100% 52%,71% 76%,53% 52%,35% 83%,20% 69%,0 92%);box-shadow:inset 0 0 0 6px #5f3c24}.wall-scene__wall i{position:absolute;width:3rem;height:4rem;background:#7e5030;border:4px solid #4b2e1a}.wall-scene__wall i:nth-child(1){left:17%;top:43%}.wall-scene__wall i:nth-child(2){left:51%;top:25%}.wall-scene__wall i:nth-child(3){right:15%;top:24%}.wall__karol{position:absolute;right:-4%;bottom:0;width:min(68vw,34rem);height:76%;object-fit:cover;object-position:56% center;clip-path:polygon(5% 4%,95% 4%,95% 100%,5% 100%);filter:drop-shadow(-1rem 1rem 1rem #35200e88)}.wall-scene__copy{position:absolute;top:12%;left:clamp(1.25rem,5vw,5rem);max-width:42rem;text-shadow:0 2px 18px #70451c}.wall-scene__copy h2{margin:.7rem 0}.wall-scene__copy>p:last-child{max-width:35rem;line-height:1.7;color:#fff4e5}.swipe-scene{display:grid;align-items:center;gap:2rem;background:radial-gradient(circle at 80% 45%,#752d3f,#190c12 45%,#070506 75%)}.swipe-scene__copy{z-index:2}.swipe-scene__copy h2{margin:.7rem 0}.phone{position:relative;justify-self:center;width:min(85vw,23rem);height:38rem;padding:1rem;border:7px solid #272326;border-radius:3rem;background:#faf5f0;color:#181217;box-shadow:0 2rem 5rem #000a}.phone__top{display:flex;justify-content:space-between;padding:.35rem .6rem .8rem;font-size:.7rem}.profile-card{position:relative;height:28rem;overflow:hidden;border-radius:1.5rem;background:#ddd;box-shadow:0 .5rem 1.2rem #0003}.profile-card img{width:100%;height:100%;object-fit:cover}.profile-card__caption{position:absolute;inset:auto 0 0;padding:4rem 1rem 1rem;background:linear-gradient(transparent,#000d);color:white}.profile-card__caption strong{display:block;font-size:1.8rem}.like-stamp{position:absolute;top:1.5rem;left:1rem;padding:.35rem .6rem;border:4px solid #55c978;border-radius:.4rem;color:#55c978;transform:rotate(-12deg)}.phone__actions{display:flex;justify-content:space-around;padding:1rem;font-size:2rem}.phone__actions span{display:grid;width:3rem;aspect-ratio:1;place-items:center;border:1px solid #ddd;border-radius:50%}.phone__actions span:last-child{color:#d83557}.match{position:absolute;inset:32% 10% auto;display:grid;place-items:center;padding:2rem;border-radius:1.5rem;background:#21131aee;color:white;text-align:center;box-shadow:0 1rem 3rem #0008}.match small{letter-spacing:.2em;text-transform:uppercase}.match strong{color:#ef5977;font:3rem/1 Georgia}.match span{font-size:2rem;color:#ef5977}.date-night{display:grid;gap:3rem;align-items:center;background:#ede1cf;color:#1d1712}.date-night__photo{height:70dvh;overflow:hidden;border-radius:50% 50% 1.2rem 1.2rem;box-shadow:0 2rem 4rem #5a432a55}.date-night__photo img{width:100%;height:100%;object-fit:cover;object-position:center}.date-night__copy p:last-child{max-width:40rem;color:#675b50;line-height:1.8}.kiss-scene{display:grid;grid-template-columns:1fr auto 1fr;place-content:center;place-items:center;gap:.3rem;background:radial-gradient(circle,#3b171e,#090507 60%)}.avatar{width:clamp(7rem,28vw,15rem);aspect-ratio:1;border:3px solid #c99270;border-radius:50%;overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.avatar--ania img{object-position:50% 20%}.avatar--karol img{object-position:56% 24%}.kiss-scene__heart{color:#e85370;font-size:clamp(2rem,9vw,5rem);animation:pulse 1.2s infinite}.kiss-scene .kicker,.kiss-scene h2,.kiss-scene>p:last-child{grid-column:1/-1}.kiss-scene h2{margin:.8rem 0}.kiss-scene>p:last-child{max-width:38rem;color:#c9b6b8;line-height:1.7}@keyframes pulse{50%{transform:scale(1.2)}}.date-scene{display:grid;place-content:center;justify-items:center;text-align:center;background:#090807}.date-scene__line{width:min(72vw,35rem);height:1px;margin-bottom:4rem;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.date-scene__date{margin:1.5rem 0;color:var(--gold);font:clamp(3rem,12vw,8rem)/1 Georgia;letter-spacing:-.05em}.date-scene h2{font-size:clamp(2rem,7vw,4rem)}.wishes{padding-block:8rem;background:#f0e5d4;color:#1e1812}.wishes header{text-align:center}.wishes h2{margin:.8rem 0 4rem}.wish-grid{display:grid;gap:1rem}.wish-grid article{padding:2rem;border:1px solid #cbb89f;border-radius:1.2rem;background:#f8f0e5}.wish-grid span{font-size:2rem}.wish-grid h3{font:1.65rem/1.15 Georgia}.wish-grid p{margin:0;color:#6d6055;line-height:1.65}.signature{display:grid;gap:3rem;align-items:center;background:#10100e}.signature__photo{height:65dvh;border-radius:18rem 18rem 1rem 1rem;overflow:hidden}.signature__photo img{width:100%;height:100%;object-fit:cover}.signature blockquote{margin:1rem 0 2rem;font-size:clamp(2rem,6vw,4.5rem);line-height:1.12}.signature__names{color:#aaa097;line-height:1.5}.signature__names strong{color:var(--gold);font:2rem Georgia}.future{display:grid;place-content:center;justify-items:center;text-align:center;min-height:125dvh;background:radial-gradient(circle at 50% 40%,#432a16,#090705 58%)}.future h2{margin:.8rem 0 3rem}.future__picture{position:relative;width:min(88vw,45rem);height:62dvh;border:1px solid #a47b49;border-radius:50% 50% 1.5rem 1.5rem;isolation:isolate}.future__picture>img{width:100%;height:100%;object-fit:cover;border-radius:inherit;filter:sepia(.12) brightness(.76)}.future__picture::after{content:"";position:absolute;inset:0;z-index:0;border-radius:inherit;background:linear-gradient(transparent 48%,#090705)}.future__item{position:absolute;z-index:1;display:grid;padding:.75rem;border:1px solid #d7ad6d;border-radius:1rem;background:#150e09e8;font-size:2.2rem;box-shadow:0 .5rem 2rem #0008}.future__item small{font-size:.65rem;color:#e5d4bd}.future__item--home{top:5%;left:-4%}.future__item--family{top:24%;right:-4%}.future__item--money{bottom:8%;left:4%}.future__ending{margin:3rem 0 1rem;font:clamp(1.8rem,6vw,3.5rem)/1.2 Georgia}.confetti{color:var(--gold);font-size:1.5rem;letter-spacing:.3em}.final-date{margin-top:2rem;color:#8d8175;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+ @media(min-width:800px){.swipe-scene,.date-night,.signature{grid-template-columns:1fr 1fr}.swipe-scene__copy{padding-left:5vw}.wish-grid{grid-template-columns:repeat(2,1fr)}.wall__karol{right:4%;width:33rem}.date-night__photo,.signature__photo{height:82dvh}.signature{padding-block:8rem}}
+ @media(max-width:500px){.wall-scene__copy h2{font-size:2.5rem}.wall__karol{width:78vw;height:65%;bottom:-2%}.phone{height:35rem}.profile-card{height:25rem}.future__picture{height:58dvh}.intro__copy{margin-top:13rem}}
++
++/* v3 assets and animated couple */
++.rings-photo{position:absolute;top:9%;display:grid;place-items:center;width:min(92vw,42rem);filter:drop-shadow(0 1.5rem 1.5rem #000c);overflow:hidden}
++.rings-photo img{display:block;width:100%;height:auto;object-fit:contain}
++.rings-photo__shine{position:absolute;inset:-20%;background:linear-gradient(105deg,transparent 38%,rgba(255,248,217,.8) 48%,transparent 58%);transform:translateX(-170%) rotate(10deg);mix-blend-mode:screen;filter:blur(6px)}
++.kiss-stage{grid-column:1/-1;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:end;width:min(96vw,64rem);height:clamp(20rem,64vw,39rem);margin-bottom:1.8rem;overflow:visible}
++.anime-character{position:relative;z-index:1;display:flex;align-items:flex-end;height:100%}
++.anime-character img{display:block;width:clamp(15rem,46vw,32rem);max-width:none;filter:drop-shadow(0 1.2rem 1.2rem #000a)}
++.anime-character--ania{justify-content:flex-end;transform-origin:bottom right}
++.anime-character--karol{justify-content:flex-start;transform-origin:bottom left}
++.anime-character--karol img{transform:scaleX(-1)}
++.kiss-burst{position:absolute;z-index:3;left:50%;top:33%;transform:translate(-50%,-50%);width:8rem;height:8rem;color:#ee6680;pointer-events:none}
++.kiss-burst span{position:absolute;left:37%;top:28%;font-size:3.8rem}.kiss-burst i{position:absolute;left:4%;top:8%;color:#f4c36f;font-size:2rem}.kiss-burst b{position:absolute;right:3%;bottom:5%;font-size:1.8rem}
++.wish-grid{grid-template-columns:1fr}
++@media(min-width:700px){.wish-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
++@media(min-width:1200px){.wish-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
++@media(max-width:600px){.rings-photo{top:13%;width:100vw}.intro__copy{margin-top:14rem}.kiss-stage{width:118vw;height:24rem}.anime-character img{width:17rem}.kiss-burst{top:36%;transform:translate(-50%,-50%) scale(.72)}}
+diff --git a/src/app/app.component.ts b/src/app/app.component.ts
+index 8664522..a46d0be 100644
+--- a/src/app/app.component.ts
++++ b/src/app/app.component.ts
+@@ -29,9 +29,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
+     this.context = gsap.context(() => {
+       gsap.timeline()
+         .to('.intro__glow', { opacity: .75, duration: 1.5, ease: 'power2.out' })
+-        .from('.band--gold', { x: -160, rotation: -80, opacity: 0, duration: 1.65, ease: 'power3.out' }, '-=.6')
+-        .from('.band--silver', { x: 160, rotation: 80, opacity: 0, duration: 1.65, ease: 'power3.out' }, '<')
+-        .to('.bands', { scale: 1.06, duration: .7, yoyo: true, repeat: 1 })
++        .from('.rings-photo', { y: 55, scale: .62, rotation: -7, opacity: 0, duration: 1.9, ease: 'power3.out' }, '-=.6')
++        .to('.rings-photo', { scale: 1.055, duration: .75, yoyo: true, repeat: 1 })
++        .fromTo('.rings-photo__shine', { xPercent: -170, opacity: 0 }, { xPercent: 190, opacity: .9, duration: 1.15, ease: 'power2.inOut' }, '-=1.15')
+         .from('.intro__copy > *', { y: 28, opacity: 0, duration: .95, stagger: .18 }, '-=.65')
+         .from('.intro__scroll', { opacity: 0, y: -10, duration: .7 });
+ 
+@@ -53,6 +53,16 @@ export class AppComponent implements AfterViewInit, OnDestroy {
+         .to('.profile-card', { x: 300, rotation: 18, opacity: 0, duration: 1.1, delay: .55, ease: 'power2.in' })
+         .from('.match', { scale: .4, opacity: 0, duration: .75, ease: 'back.out(1.8)' }, '-=.2');
+ 
++
++
++      gsap.timeline({ scrollTrigger: { trigger: '.kiss-scene', start: 'top 68%', once: true } })
++        .from('.anime-character--ania', { xPercent: -160, rotation: -9, opacity: 0, duration: 1.35, ease: 'power3.out' })
++        .from('.anime-character--karol', { xPercent: 160, rotation: 9, opacity: 0, duration: 1.35, ease: 'power3.out' }, '<')
++        .to('.anime-character--ania', { xPercent: 34, rotation: 3, duration: 1.15, ease: 'power2.inOut' })
++        .to('.anime-character--karol', { xPercent: -34, rotation: -3, duration: 1.15, ease: 'power2.inOut' }, '<')
++        .from('.kiss-burst > *', { scale: 0, opacity: 0, rotation: -35, duration: .65, stagger: .12, ease: 'back.out(2)' }, '-=.18')
++        .to('.anime-character', { y: -7, duration: .48, yoyo: true, repeat: 1 }, '-=.52');
++
+       gsap.timeline({ scrollTrigger: { trigger: '.date-scene', start: 'top 72%', once: true } })
+         .from('.date-scene__line', { scaleX: 0, duration: 1.2, transformOrigin: 'left' })
+         .from('.date-scene__date', { opacity: 0, scale: .75, duration: .8, ease: 'back.out(1.6)' })
+diff --git a/src/index.html b/src/index.html
+index 7f268a7..670460e 100644
+--- a/src/index.html
++++ b/src/index.html
+@@ -2,7 +2,7 @@
+ <html lang="pl">
+ <head>
+   <meta charset="utf-8">
+-  <title>Ania i Karol | 28.09.2026</title>
++  <title>Ania i Karol | 26.09.2026</title>
+   <base href="/">
+   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+   <meta name="robots" content="noindex, nofollow, noarchive">

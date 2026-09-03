@@ -11,10 +11,7 @@
   } @else {
     <section class="intro" aria-labelledby="intro-title">
       <div class="intro__glow"></div>
-      <div class="rings-photo" aria-hidden="true">
-        <img src="/images/wedding-rings.png" alt="">
-        <span class="rings-photo__shine"></span>
-      </div>
+      <div class="rings-photo" aria-hidden="true"><img src="/images/wedding-rings-clean.png" alt=""><span class="rings-photo__shine"></span></div>
       <div class="intro__copy">
         <p class="kicker">Każda wielka historia ma swój początek</p>
         <h1 id="intro-title">Ania <span>&amp;</span> Karol</h1>
@@ -35,9 +32,9 @@
       <div class="wall-scene__wall"><i></i><i></i><i></i></div>
       <img class="wall__karol" src="/images/karol-great-wall.jpg" alt="Karol na Wielkim Murze Chińskim" loading="eager">
       <div class="wall-scene__copy" data-reveal>
-        <p class="kicker">Gdzieś bardzo, bardzo daleko…</p>
-        <h2>Karol był już prawie<br>na końcu świata.</h2>
-        <p>Tym razem bez filmowych sztuczek. Karol naprawdę dotarł na Wielki Mur Chiński.</p>
+        <p class="kicker">Był 2018 rok…</p>
+        <h2>Dwie różne drogi<br>miały za chwilę się spotkać.</h2>
+        <p>Karol poznawał świat, nie wiedząc jeszcze, że najważniejsza podróż zacznie się całkiem niedługo.</p>
       </div>
     </section>
 
@@ -49,8 +46,8 @@
       <div class="phone" aria-label="Animowana karta profilu">
         <div class="phone__top"><span>9:41</span><span>● ● ●</span></div>
         <div class="profile-card">
-          <img src="/images/ania.jpg" alt="Portret Ani z dyplomem i kwiatami">
-          <div class="profile-card__caption"><strong>Ania</strong><span>To wygląda obiecująco ✨</span></div>
+          <img src="/images/karol-2018.jpg" alt="Starsze zdjęcie Karola">
+          <div class="profile-card__caption"><strong>Karol</strong><span>To wygląda obiecująco ✨</span></div>
           <b class="like-stamp">W PRAWO!</b>
         </div>
         <div class="phone__actions"><span>×</span><span>★</span><span>♥</span></div>
@@ -58,19 +55,27 @@
       </div>
     </section>
 
-    <section class="date-night">
-      <div class="date-night__photo" data-reveal>
-        <img src="/images/ania-karol.png" alt="Ania i Karol razem podczas sesji zdjęciowej" loading="lazy">
-      </div>
-      <div class="date-night__copy">
-        <p class="kicker" data-reveal>Potem była pierwsza randka</p>
-        <h2 data-reveal>Rozmowa.<br>Śmiech.<br>I jeszcze jedna randka.</h2>
-        <p data-reveal>Z przypadkowego spotkania zaczęła się historia, której nikt nie chciał już przewijać dalej.</p>
-      </div>
+    <section class="together-date" data-reveal>
+      <figure class="together-date__photo"><img src="/images/together-visible.png" alt="Wspólne zdjęcie z 2018 roku" loading="lazy"></figure>
+      <div class="together-date__copy"><span>Od tego dnia</span><strong>Razem od 15 lipca 2018</strong><p>15 lipca 2018 oficjalnie zostali parą.</p><i aria-hidden="true">♥</i></div>
     </section>
 
+    <section class="memories-scene">
+      <header class="memories-scene__header" data-reveal>
+        <p class="kicker">Ich wspólna codzienność</p>
+        <h2>Małe chwile.<br>Wielkie wspomnienia.</h2>
+      </header>
+      <article class="memory-card memory-card--cats" data-reveal>
+        <img src="/images/cats-memory.jpg" alt="Domowe wspomnienie z kotami" loading="lazy">
+        <div><span>Domowe historie</span><h3>Najlepszy odpoczynek ma czasem cztery łapy.</h3></div>
+      </article>
+      <article class="memory-card memory-card--travel memory-card--placeholder" data-reveal>
+        <div class="memory-card__placeholder" aria-hidden="true">✦</div>
+        <div><span>Wspólne podróże</span><h3>Tu pojawi się zdjęcie Ani z podróży.</h3><p>Plik docelowy: <code>public/images/ania-travel.jpg</code></p></div>
+      </article>
+    </section>
 
-    <section class="restaurant-scene">
+<section class="restaurant-scene">
       <div class="restaurant-scene__copy">
         <p class="kicker" data-reveal>Wspólna codzienność</p>
         <h2 data-reveal>Najlepsze historie mają też dobry smak.</h2>
@@ -80,14 +85,14 @@
         <img src="/images/karol-restaurant.jpg" alt="Karol podczas kolacji w restauracji" loading="lazy">
       </figure>
     </section>
-
     <section class="kiss-scene chapter--center">
-      <div class="avatar avatar--ania" data-reveal><img src="/images/ania.jpg" alt="Ania"></div>
-      <div class="kiss-scene__heart" aria-hidden="true">♥</div>
-      <div class="avatar avatar--karol" data-reveal><img src="/images/karol.jpg" alt="Karol"></div>
-      <p class="kicker" data-reveal>A później…</p>
-      <h2 data-reveal>był buziak.</h2>
-      <p data-reveal>I od tego momentu wszystko potoczyło się już całkiem naturalnie.</p>
+      <div class="hug-stage">
+        <div class="anime-character anime-character--ania"><img src="/images/ania-anime.png" alt="Stylizowana postać Ani"></div>
+        <div class="anime-character anime-character--karol"><img src="/images/karol-anime.png" alt="Stylizowana postać Karola"></div>
+        <div class="anime-hug-final"><img src="/images/couple-anime-hug.png" alt="Stylizowana para w objęciu"></div>
+        <div class="floating-hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span><span>♥</span><i>✦</i><i>✦</i></div>
+      </div>
+      <p class="kicker" data-reveal>A później…</p><h2 data-reveal>już zawsze bliżej siebie.</h2><p data-reveal>Od pierwszego spotkania do wspólnej historii, która trwa do dziś.</p>
     </section>
 
     <section class="date-scene">
