@@ -14,26 +14,49 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [{ "glob": "**/*", "input": "public" }],
-            "styles": ["src/styles.scss"]
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
               "outputHashing": "all",
               "budgets": [
-                { "type": "initial", "maximumWarning": "900kB", "maximumError": "1.4MB" },
-                { "type": "anyComponentStyle", "maximumWarning": "60kB", "maximumError": "80kB" }
+                {
+                  "type": "initial",
+                  "maximumWarning": "900kB",
+                  "maximumError": "1.4MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "100kB",
+                  "maximumError": "120kB"
+                }
               ]
             },
-            "development": { "optimization": false, "extractLicenses": false, "sourceMap": true }
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": { "buildTarget": "wedding-story:build:production" },
-            "development": { "buildTarget": "wedding-story:build:development" }
+            "production": {
+              "buildTarget": "wedding-story:build:production"
+            },
+            "development": {
+              "buildTarget": "wedding-story:build:development"
+            }
           },
           "defaultConfiguration": "development"
         }

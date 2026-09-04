@@ -196,3 +196,250 @@
 .future-card--home>img{object-fit:cover;object-position:center center;transform:none;filter:saturate(1.03) contrast(1.025)}
 .future-card--home::after{background:linear-gradient(180deg,rgba(8,5,3,.02) 36%,rgba(8,5,3,.9) 88%)}
 @media(max-width:680px){.future-card--family>img{object-fit:contain!important}.future-card--home>img{object-position:center}}
+
+
+/* v17 mobile Great Wall fix */
+@media (max-width: 760px) {
+  .wall-scene {
+    min-height: auto;
+    padding: 0 0 3.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #17120e;
+  }
+
+  /* A blurred copy fills the background without affecting photo proportions. */
+  .wall-scene::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background: url('/images/karol-great-wall.jpg') center 28% / cover no-repeat;
+    filter: blur(20px) brightness(.48) saturate(.75);
+    transform: scale(1.12);
+  }
+
+  .wall-scene::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 7, 5, .12), #17120e 78%);
+  }
+
+  .wall__karol {
+    position: relative !important;
+    inset: auto !important;
+    order: 1;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    clip-path: none !important;
+    border-radius: 0 !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .wall-scene__copy {
+    position: relative !important;
+    inset: auto !important;
+    order: 2;
+    width: calc(100% - 2rem);
+    max-width: none !important;
+    margin: -1.2rem 1rem 0;
+    padding: 1.5rem 1.25rem 1.7rem;
+    text-align: left !important;
+    border: 1px solid rgba(221, 174, 96, .24);
+    border-radius: 1rem;
+    background: rgba(18, 13, 10, .94) !important;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, .35);
+    text-shadow: none !important;
+  }
+
+  .wall-scene__copy .kicker {
+    margin-bottom: .75rem;
+    color: #e0ae5d;
+    font-size: .68rem;
+  }
+
+  .wall-scene__copy h2 {
+    margin: 0 0 1rem;
+    max-width: 100%;
+    font-size: clamp(2rem, 9.5vw, 3.2rem) !important;
+    line-height: 1.02;
+  }
+
+  .wall-scene__copy > p:last-child {
+    max-width: none;
+    margin: 0 !important;
+    color: #d7c9ba;
+    font-size: .96rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 420px) {
+  .wall-scene__copy {
+    width: calc(100% - 1.25rem);
+    margin-inline: .625rem;
+    padding-inline: 1rem;
+  }
+
+  .wall-scene__copy h2 {
+    font-size: clamp(1.85rem, 9vw, 2.55rem) !important;
+  }
+}
+
+/* v18 comprehensive responsive audit */
+:host{overflow-x:clip}
+img{max-width:100%}
+
+@media (max-width: 760px){
+  /* Shared mobile rhythm */
+  .gate,.intro,.chapter,.swipe-scene,.date-scene,.wishes,.signature,.future,.voice-scene,.closing-scene,.proposal-scene,.altar-scene,.newlyweds-scene,.kiss-scene,.memories-scene,.together-date,.road-scene{min-height:100svh;padding-left:1rem;padding-right:1rem}
+  h1{font-size:clamp(2.9rem,15vw,4.8rem)}
+  h2{font-size:clamp(2.15rem,10vw,3.6rem);overflow-wrap:anywhere}
+  .kicker{font-size:.62rem;line-height:1.55;letter-spacing:.15em}
+
+  /* Gate and intro */
+  .gate{padding-top:max(2rem,env(safe-area-inset-top));padding-bottom:max(2rem,env(safe-area-inset-bottom))}
+  .gate__lead{font-size:.95rem}
+  .intro{padding-bottom:5.5rem}
+  .rings-photo{top:8%;width:min(96vw,29rem)}
+  .rings-photo::after{display:none}
+  .rings-photo img{clip-path:inset(0 0 7% 0)}
+  .intro__copy{margin-top:13.5rem;padding:0 .35rem}
+  .intro__copy h1{margin-block:.55rem .85rem}
+  .intro__copy>p:last-child{font-size:.92rem;line-height:1.55}
+  .intro__scroll{bottom:max(1.25rem,env(safe-area-inset-bottom));width:90%;place-items:center;text-align:center}
+
+  /* Chapter opener */
+  .chapter{padding-block:4rem;min-height:82svh}
+  .chapter__number{font-size:clamp(8rem,42vw,12rem)}
+
+  /* Great Wall handled as full image plus separate copy */
+  .wall-scene{min-height:auto!important;padding:0 0 2.5rem!important;display:flex!important;flex-direction:column!important;background:#17120e!important}
+  .wall-scene::before{position:absolute;inset:0;content:"";z-index:-2;background:url('/images/karol-great-wall.jpg') center 20%/cover no-repeat;filter:blur(18px) brightness(.42);transform:scale(1.12)}
+  .wall-scene::after{position:absolute;inset:0;content:"";z-index:-1;background:linear-gradient(180deg,transparent 40%,#17120e 78%)}
+  .wall__karol{position:relative!important;inset:auto!important;order:1!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:none!important;opacity:1!important;clip-path:none!important}
+  .wall-scene__copy{position:relative!important;inset:auto!important;order:2!important;width:calc(100% - 1.25rem)!important;max-width:none!important;margin:-.75rem .625rem 0!important;padding:1.25rem!important;text-align:left!important;background:rgba(18,13,10,.95)!important;border:1px solid rgba(221,174,96,.2);border-radius:1rem;box-shadow:0 1rem 2rem #0006;text-shadow:none!important}
+  .wall-scene__copy h2{font-size:clamp(1.9rem,9vw,2.7rem)!important;margin:.45rem 0 .8rem}
+  .wall-scene__copy>p:last-child{font-size:.9rem;line-height:1.6;margin:0!important}
+
+  /* Tinder */
+  .swipe-scene{grid-template-columns:1fr!important;grid-template-rows:auto auto!important;gap:1.5rem!important;padding-block:4rem;align-content:center}
+  .swipe-scene__copy{grid-column:1!important;grid-row:1!important;text-align:center;max-width:none;padding:0!important}
+  .swipe-scene__copy h2{font-size:clamp(2.35rem,11vw,3.25rem);margin:.65rem 0 0}
+  .phone{grid-column:1!important;grid-row:2!important;justify-self:center!important;width:min(90vw,21rem);height:auto;min-height:33rem;padding:.8rem;border-width:5px;border-radius:2.3rem}
+  .profile-card{height:24rem}
+  .profile-card img{object-position:center 20%}
+  .phone__actions{padding:.75rem}.phone__actions span{width:2.7rem}
+  .match{inset:30% 8% auto;padding:1.5rem}.match strong{font-size:2.5rem}
+
+  /* Relationship date */
+  .together-date{min-height:auto!important;padding:3rem 1rem!important;grid-template-columns:1fr!important;gap:1.5rem!important}
+  .together-date__photo{order:1;width:100%;height:auto!important;min-height:0!important;max-height:none;border-radius:1rem 1rem 5rem 5rem}
+  .together-date__photo img{display:block;width:100%;height:auto!important;max-height:none!important;object-fit:contain!important}
+  .together-date__copy{order:2;justify-items:center;text-align:center;padding:.5rem 0}
+  .together-date__copy strong{max-width:15ch;font-size:clamp(2.4rem,11vw,3.9rem)}
+  .date-confetti,.date-hearts{overflow:hidden}
+
+  /* Memories */
+  .memories-scene{min-height:auto!important;padding:4rem 1rem!important;grid-template-columns:1fr!important;gap:1.25rem}
+  .memories-scene__header{margin-bottom:.5rem}.memories-scene__header h2{font-size:clamp(2.45rem,11vw,3.5rem)}
+  .memory-card{min-height:0!important;height:auto;aspect-ratio:4/5}
+  .memory-card>img{object-fit:cover}
+  .memory-card--cats>img{object-position:center 43%!important}
+  .memory-card--cats>div:last-child{top:auto!important;bottom:0!important;max-width:100%!important;padding:1.1rem!important;background:linear-gradient(transparent,rgba(8,6,4,.94))!important}
+  .memory-card--cats::after{background:linear-gradient(transparent 45%,rgba(5,4,3,.86))}
+  .memory-card--travel>img{object-position:center 36%}
+  .memory-card h3{font-size:clamp(1.65rem,7.5vw,2.4rem)}
+
+  /* Proposal */
+  .proposal-scene{min-height:auto!important;padding:4rem 1rem!important;grid-template-columns:1fr!important;gap:1.75rem}
+  .proposal-scene__photo,.proposal-scene__photo[data-reveal]{order:1;width:100%;height:auto!important;aspect-ratio:3/4;transform:none!important;opacity:1!important;border-radius:1rem 1rem 7rem 7rem}
+  .proposal-scene__photo img{object-fit:cover;object-position:center 46%}
+  .proposal-scene__copy{order:2;padding:0!important;text-align:center}
+  .proposal-scene__copy h2{font-size:clamp(2.35rem,10.5vw,3.5rem);max-width:14ch}
+
+  /* Road */
+  .road-scene{min-height:100svh!important;padding:0!important}
+  .road-scene__copy{top:8%;left:1rem;right:1rem;padding:0!important}
+  .road-scene__copy h2{font-size:clamp(2.5rem,12vw,4rem);line-height:1}
+  .road-scene__car{top:42%;width:118vw}
+  .road-scene__car img{border-radius:.8rem}
+  .road-scene__road{inset:70% 0 0}
+
+  /* Wedding date */
+  .date-scene{padding-block:4rem;min-height:82svh}
+  .date-scene__line{margin-bottom:2.3rem}.date-scene__date{font-size:clamp(2.65rem,13vw,4.5rem);white-space:nowrap}
+  .date-scene h2{font-size:clamp(2.2rem,10vw,3.5rem)}
+
+  /* Altar */
+  .altar-scene{min-height:auto!important;padding:3.5rem 1rem!important;grid-template-columns:1fr!important;gap:1.5rem}
+  .altar-scene__photo{height:auto!important;aspect-ratio:3/4;border-radius:7rem 7rem 1rem 1rem}
+  .altar-scene__photo img{object-fit:contain;background:#d8d2cb;object-position:center}
+  .altar-scene__copy{text-align:center}.altar-scene__copy h2{font-size:clamp(2.3rem,10vw,3.4rem);margin-inline:auto}
+
+  /* Anime embrace */
+  .kiss-scene{min-height:auto!important;padding:4rem .75rem!important;grid-template-columns:1fr!important}
+  .hug-stage{width:100%!important;height:23rem!important;margin-bottom:1rem;overflow:hidden}
+  .anime-character img{width:15rem!important}.anime-hug-final img{max-width:100%;max-height:21rem}
+  .floating-hearts{top:3%;width:88%}
+  .kiss-scene h2{font-size:clamp(2.4rem,11vw,3.5rem)}
+
+  /* Newlyweds hero */
+  .newlyweds-scene{min-height:100svh!important;padding:0!important}
+  .newlyweds-scene>img{object-fit:cover;object-position:center 35%}
+  .newlyweds-scene__copy{bottom:0!important;padding:5rem 1rem 2rem!important}
+  .newlyweds-scene__copy h2{font-size:clamp(2.8rem,13vw,4.7rem)}
+
+  /* Wishes */
+  .wishes{min-height:auto!important;padding:4rem .75rem!important;overflow:visible}
+  .wishes h2{font-size:clamp(2.7rem,12vw,4rem);margin-bottom:2rem}
+  .wish-grid{grid-template-columns:1fr!important;gap:.9rem}
+  .wish-letter summary{height:12rem!important;min-height:12rem!important;padding:1.3rem 1rem}
+  .wish-letter__title{font-size:1.2rem;min-height:auto}.wish-letter__seal{width:3rem;margin-bottom:.7rem}
+  .wish-letter__paper{min-height:0;padding:1.3rem 1rem}
+
+  /* Voice */
+  .voice-scene{min-height:auto!important;padding:5rem .75rem!important}
+  .voice-card{width:100%;padding:3.5rem 1rem 1.8rem}.voice-card h2{font-size:clamp(2.45rem,11vw,3.6rem)}
+  .wedding-audio{height:3.2rem}
+
+  /* Quote */
+  .signature{min-height:auto!important;padding:4rem 1rem!important;grid-template-columns:1fr!important;gap:2rem}
+  .signature__photo{height:auto!important;aspect-ratio:3/4;border-radius:8rem 8rem 1rem 1rem}
+  .signature__photo img{object-position:center 24%}
+  .signature blockquote{font-size:clamp(1.9rem,8vw,3rem)}
+
+  /* Full package */
+  .future{min-height:auto!important;padding:4rem .75rem!important}
+  .future__header h2{font-size:clamp(2.6rem,12vw,4rem)}
+  .future-grid{grid-template-columns:1fr!important;gap:1rem}
+  .future-card,.future-card--money{grid-column:auto!important;min-height:0!important;height:auto;aspect-ratio:4/5}
+  .future-card--family>img{object-fit:contain!important;object-position:center!important;transform:none!important}
+  .future-card--home>img{object-position:center!important}
+  .future-card>div:last-child{padding:1.25rem}.future-card h3{font-size:clamp(1.9rem,8vw,2.7rem)}
+  .future__ending{font-size:clamp(2rem,9vw,3.2rem)!important;margin-top:3rem!important}
+
+  /* Closing */
+  .closing-scene{min-height:100svh!important;padding:5rem 1rem!important}
+  .closing-scene__rings{top:9%}.closing-scene__copy strong{font-size:clamp(3.2rem,14vw,5.5rem)}
+}
+
+@media (min-width:761px) and (max-width:1100px){
+  .proposal-scene,.altar-scene,.signature{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .swipe-scene{grid-template-columns:minmax(0,1fr) minmax(19rem,23rem);column-gap:2.5rem}
+  .future-grid{grid-template-columns:repeat(2,1fr)}
+  .future-card--money{grid-column:1/-1}
+  .wish-grid{grid-template-columns:repeat(2,1fr)}
+}

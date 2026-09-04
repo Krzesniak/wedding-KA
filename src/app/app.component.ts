@@ -42,9 +42,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         });
       });
 
-      gsap.from('.wall__karol', {
-        x: -150, opacity: 0, rotation: -5, duration: 1.25,
-        scrollTrigger: { trigger: '.wall-scene', start: 'top 72%', toggleActions: 'restart pause restart pause' }
+      gsap.matchMedia().add('(min-width: 761px)', () => {
+        gsap.from('.wall__karol', {
+          x: -150, opacity: 0, rotation: -5, duration: 1.25,
+          scrollTrigger: { trigger: '.wall-scene', start: 'top 72%', toggleActions: 'restart pause restart pause' }
+        });
       });
 
       gsap.timeline({ scrollTrigger: { trigger: '.swipe-scene', start: 'top 68%', toggleActions: 'restart pause restart pause' } })
