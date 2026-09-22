@@ -119,19 +119,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     audio?.addEventListener('pause', () => wave?.classList.remove('is-playing'));
     audio?.addEventListener('ended', () => wave?.classList.remove('is-playing'));
 
-    if (window.matchMedia('(max-width: 760px)').matches) {
-      const slides = Array.from(root.querySelectorAll<HTMLElement>(':scope > section'));
-      const slideObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const slide = entry.target as HTMLElement;
-          slide.classList.toggle('is-active-slide', entry.isIntersecting && entry.intersectionRatio >= 0.82);
-        });
-      }, { threshold: [0, 0.82, 1] });
-
-      slides.forEach((slide) => slideObserver.observe(slide));
-    }
 
     ScrollTrigger.refresh();
+    window.setTimeout(() => ScrollTrigger.refresh(), 150);
+    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+
   }
 
   ngOnDestroy(): void { this.context?.revert(); ScrollTrigger.getAll().forEach(trigger => trigger.kill()); }
