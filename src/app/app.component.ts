@@ -54,13 +54,27 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         .from('.profile-card', { scale: .86, opacity: 0, duration: .7 }, '-=.25')
         .to('.profile-card', { x: 300, rotation: 18, opacity: 0, duration: 1.1, delay: .55, ease: 'power2.in' })
         .from('.match', { scale: .4, opacity: 0, duration: .75, ease: 'back.out(1.8)' }, '-=.2');
+      const roadMedia = gsap.matchMedia();
 
+      roadMedia.add('(min-width: 761px)', () => {
+        gsap.timeline({ repeat: -1, repeatDelay: 1.1, scrollTrigger: { trigger: '.road-scene', start: 'top 75%', end: 'bottom 25%', toggleActions: 'restart pause restart pause' } })
+          .fromTo('.road-scene__car', { xPercent: 135, rotation: 1.5 }, { xPercent: 0, rotation: 0, duration: 2.25, ease: 'power2.out' })
+          .fromTo('.road-scene__copy', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .8 }, '-=.55')
+          .to('.road-scene__car', { xPercent: -135, duration: 2.1, ease: 'power2.in', delay: 1.4 })
+          .to('.road-scene__copy', { opacity: 0, duration: .45 }, '-=1.25');
+      });
 
-      gsap.timeline({ repeat: -1, repeatDelay: 1.1, scrollTrigger: { trigger: '.road-scene', start: 'top 75%', end: 'bottom 25%', toggleActions: 'restart pause restart pause' } })
-        .fromTo('.road-scene__car', { xPercent: 135, rotation: 1.5 }, { xPercent: 0, rotation: 0, duration: 2.25, ease: 'power2.out' })
-        .fromTo('.road-scene__copy', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: .8 }, '-=.55')
-        .to('.road-scene__car', { xPercent: -135, duration: 2.1, ease: 'power2.in', delay: 1.4 })
-        .to('.road-scene__copy', { opacity: 0, duration: .45 }, '-=1.25');
+      roadMedia.add('(max-width: 760px)', () => {
+        gsap.timeline({ repeat: -1, repeatDelay: 0.5, scrollTrigger: { trigger: '.road-scene', start: 'top 75%', end: 'bottom 25%', toggleActions: 'restart pause restart pause' } })
+          .set('.road-scene__copy', { opacity: 1, y: 0 })
+          .fromTo('.road-scene__car',
+            { xPercent: 145, rotation: 0 },
+            { xPercent: 0, rotation: 0, duration: 3.0, ease: 'power2.out' }
+          )
+          .to('.road-scene__car', { xPercent: 0, duration: 2.0, ease: 'none' })
+          .to('.road-scene__car', { xPercent: -145, duration: 3.0, ease: 'power2.in' })
+          .to('.road-scene__copy', { opacity: 0, duration: .45 }, '-=1.1');
+      });
 
       gsap.timeline({ scrollTrigger: { trigger: '.kiss-scene', start: 'top 68%', toggleActions: 'restart pause restart pause' } })
         .from('.anime-character--ania', { xPercent: -170, opacity: 0, duration: 1.25, ease: 'power3.out' })
