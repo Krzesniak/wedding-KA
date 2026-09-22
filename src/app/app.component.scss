@@ -1375,3 +1375,80 @@
     object-position:center bottom!important;
   }
 }
+
+
+/* v31 mobile slide presentation */
+@media screen and (max-width:760px){
+  html, body{
+    height:100%;
+    overflow:hidden!important;
+  }
+
+  :host{
+    display:block;
+    height:100svh;
+    overflow:hidden;
+  }
+
+  main{
+    width:100%;
+    height:100svh;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  main > section{
+    box-sizing:border-box!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:100svh!important;
+    max-width:100vw!important;
+    margin:0!important;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    overflow-x:hidden!important;
+  }
+
+  /* Long slides stay one snap page, but their content can scroll internally. */
+  main > section.mobile-long-slide{
+    height:100svh!important;
+    max-height:100svh!important;
+    min-height:100svh!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior-y:contain;
+    scrollbar-width:thin;
+  }
+
+  /* Keep inactive slides from visually starting before they own the viewport. */
+  main > section:not(.is-active-slide) [data-reveal]{
+    animation-play-state:paused;
+  }
+
+  /* Exact mobile car centering: CSS owns base centering, GSAP owns x travel. */
+  .road-scene__car{
+    left:50%!important;
+    right:auto!important;
+    translate:-50% 0!important;
+    transform:none;
+    will-change:transform;
+  }
+
+  .road-scene__car img{
+    object-position:center bottom!important;
+  }
+}
+
+@supports not (height:100svh){
+  @media screen and (max-width:760px){
+    :host, main, main > section, main > section.mobile-long-slide{
+      height:100vh;
+      min-height:100vh!important;
+      max-height:100vh!important;
+    }
+  }
+}
