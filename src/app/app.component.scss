@@ -1453,3 +1453,113 @@
     }
   }
 }
+
+
+/* v33 mobile wishes scroll fix */
+@media screen and (max-width:760px){
+  /* The wishes section is intentionally a normal, long document section. */
+  main > section.wishes,
+  main > section.wishes.mobile-long-slide{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100vw!important;
+    height:auto!important;
+    min-height:100svh!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:4rem .85rem!important;
+    overflow:visible!important;
+    overscroll-behavior:auto!important;
+    scroll-snap-align:none!important;
+    scroll-snap-stop:normal!important;
+    contain:none!important;
+  }
+
+  .wishes header{
+    width:min(100%,31rem)!important;
+    margin:0 auto 2rem!important;
+    text-align:center!important;
+  }
+
+  .wishes .wish-grid{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:start!important;
+    width:min(100%,31rem)!important;
+    max-width:31rem!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0 auto!important;
+    gap:1rem!important;
+    overflow:visible!important;
+    contain:none!important;
+  }
+
+  .wishes .wish-letter{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    overflow:visible!important;
+    contain:none!important;
+  }
+
+  .wishes .wish-letter summary{
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:12.5rem!important;
+    min-height:12.5rem!important;
+    max-height:none!important;
+  }
+
+  .wishes .wish-letter[open] summary{
+    height:3.1rem!important;
+    min-height:3.1rem!important;
+  }
+
+  .wishes .wish-letter__paper{
+    box-sizing:border-box!important;
+    position:relative!important;
+    display:block!important;
+    width:calc(100% - 1.3rem)!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:-.35rem .65rem 0!important;
+    overflow:visible!important;
+  }
+
+  /* Disable snap while the user is interacting with the list of letters. */
+  html.wishes-open,
+  html.wishes-open body{
+    scroll-snap-type:none!important;
+  }
+
+  html.wishes-open main{
+    scroll-snap-type:none!important;
+  }
+
+  /* Never leave letter content hidden because a reveal animation was interrupted. */
+  .wishes [data-reveal],
+  .wishes .wish-letter,
+  .wishes .wish-letter__paper{
+    visibility:visible!important;
+  }
+}
+
+@supports not (height:100svh){
+  @media screen and (max-width:760px){
+    main > section.wishes,
+    main > section.wishes.mobile-long-slide{
+      min-height:100vh!important;
+    }
+  }
+}

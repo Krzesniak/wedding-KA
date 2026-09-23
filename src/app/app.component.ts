@@ -120,6 +120,29 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     audio?.addEventListener('ended', () => wave?.classList.remove('is-playing'));
 
 
+
+    const wishesSection = root.querySelector<HTMLElement>('.wishes');
+    if (wishesSection && !wishesSection.dataset['toggleBound']) {
+      wishesSection.dataset['toggleBound'] = 'true';
+
+      wishesSection.addEventListener('toggle', (event) => {
+        const letter = event.target;
+        if (!(letter instanceof HTMLDetailsElement) || !letter.classList.contains('wish-letter')) {
+          return;
+        }
+
+        const anyOpen = !!wishesSection.querySelector<HTMLDetailsElement>('.wish-letter[open]');
+        document.documentElement.classList.toggle('wishes-open', anyOpen);
+
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            ScrollTrigger.refresh();
+            letter.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
+        });
+      }, true);
+    }
+
     ScrollTrigger.refresh();
     window.setTimeout(() => ScrollTrigger.refresh(), 150);
     window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
